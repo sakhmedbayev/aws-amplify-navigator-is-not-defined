@@ -1,0 +1,34 @@
+{
+	"auth": {
+		"removeme8ddf59fc": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"api": {
+		"removeMe": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+							"userPoolConfig": {
+								"userPoolId": "authremoveme8ddf59fc"
+							}
+						}
+					],
+					"defaultAuthentication": {
+						"authenticationType": "API_KEY",
+						"apiKeyConfig": {
+							"description": "some desct",
+							"apiKeyExpirationDays": 7
+						}
+					}
+				}
+			}
+		}
+	}
+}
